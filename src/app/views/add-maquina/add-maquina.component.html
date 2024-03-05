@@ -1,0 +1,19 @@
+<div>
+    <h2>Crear Nueva Máquina</h2>
+    <form (ngSubmit)="submitForm()" #maquinaForm="ngForm">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="maquina.nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="maquina.descripcion" required>
+      </div>
+      <div class="form-group">
+        <label for="imagenURL">URL de Imagen:</label>
+        <input type="text" class="form-control" id="imagenURL" name="imagenURL" [(ngModel)]="maquina.imagenURL" required>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!maquinaForm.valid">Crear Máquina</button>
+    </form>
+  </div>
+  
