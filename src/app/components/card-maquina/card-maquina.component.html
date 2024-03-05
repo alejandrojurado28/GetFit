@@ -3,16 +3,16 @@
     class="container-fluid bg-trasparent my-4 p-3"
     style="position: relative"
   >
-    <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+    <div *ngFor="let maquina of maquinas, let i = index" class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
       <div class="col">
         <div class="card h-100 shadow-sm">
           <img
             width="50%"
-            src="../../../assets/benchpress.jpg"
+            [src]="maquina.imagenURL"
             class="card-img-top"
             alt="..."
           />
-          <div class="label-top shadow-sm">Bench Press</div>
+          <div class="label-top shadow-sm">{{ maquina.nombre }}</div>
           <div class="card-body">
             <div class="clearfix mb-3">
               <span class="float-end"
@@ -20,7 +20,7 @@
               >
             </div>
             <h5 class="card-title">
-              Banco plano con una barra para trabajar nuestro pectoral.
+              {{ maquina.descripcion }}
             </h5>
           </div>
         </div>
