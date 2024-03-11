@@ -48,11 +48,15 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/gestorUsuarios']">Ususarios</a>
+            <a *ngIf="currentUser?.rol === 'admin'" class="nav-link" [routerLink]="['/gestorUsuarios']">Usuarios</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/login']">Iniciar sesión</a>
+            <a *ngIf="!usuarioLogueado()" class="nav-link" [routerLink]="['/login']">Iniciar sesión</a>
+          </li>
+
+          <li class="nav-item">
+            <a *ngIf="usuarioLogueado()" class="nav-link" (click)="cerrarSesion()" style="cursor: pointer;">Cerrar Sesión</a>
           </li>
         </ul>
       </div>
