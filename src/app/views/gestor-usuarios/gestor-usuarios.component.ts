@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../interfaces/Usuario.interface';
 import { UsuarioService } from '../../services/usuario.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-gestor-usuarios',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './gestor-usuarios.component.html',
   styleUrl: './gestor-usuarios.component.css'
 })
@@ -14,6 +15,18 @@ export class GestorUsuariosComponent implements OnInit{
 
   usuarios?: Usuario[];
   mostrarFormulario: boolean = false;
+  nuevoUsuario: Usuario = {
+    id: 0,
+    email: '',
+    password: '',
+    nombre: '',
+    apellidos: '',
+    genero: '',
+    edad: 0,
+    altura: 0,
+    peso: 0,
+    rol: ''
+  };
 
   constructor(private usuarioService: UsuarioService) { }
 
@@ -33,5 +46,31 @@ export class GestorUsuariosComponent implements OnInit{
 
   muestraFormulario() {
     this.mostrarFormulario = !this.mostrarFormulario;
+  }
+
+  createUsuario() {
+    this.usuarioService.create(this.nuevoUsuario).subscribe({
+      next: () => {
+        // Actualizar la lista de usuarios después de añadir el nuevo usuario
+        this.fetchUsuarios();
+        // Limpiar el formulario
+        this.nuevoUsuario = {
+          id: 0,
+          email: '',
+          password: '',
+          nombre: '',
+          apellidos: '',
+          genero: '',
+          edad: 0,
+          altura: 0,
+          peso: 0,
+          rol: ''
+        };
+        this.mostrarFormulario = false;
+      },
+      error: error => {
+        console.error(error);
+      }
+    })
   }
 }

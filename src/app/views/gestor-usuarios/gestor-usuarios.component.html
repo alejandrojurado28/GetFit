@@ -51,33 +51,33 @@
 
   <div *ngIf="mostrarFormulario" class="mt-5">
     <h2>Añadir nuevo usuario</h2>
-    <form>
+    <form (submit)="createUsuario()">
       <div class="form-group input-group">
-        <input name="email" class="form-control" placeholder="Email" type="email">
+        <input [(ngModel)]="nuevoUsuario.email" name="email" class="form-control" placeholder="Email" type="email">
       </div>
       <div class="form-group input-group mb-3">
-        <input name="password" class="form-control" placeholder="Contraseña" type="password">
+        <input [(ngModel)]="nuevoUsuario.password" name="password" class="form-control" placeholder="Contraseña" type="password">
       </div>
       <div class="form-group input-group mb-3">
-        <input name="nombre" class="form-control" placeholder="Nombre" type="password">
+        <input [(ngModel)]="nuevoUsuario.nombre" name="nombre" class="form-control" placeholder="Nombre" type="text">
       </div>
       <div class="form-group input-group mb-3">
-        <input name="apellidos" class="form-control" placeholder="Apellidos" type="password">
+        <input [(ngModel)]="nuevoUsuario.apellidos" name="apellidos" class="form-control" placeholder="Apellidos" type="text">
       </div>
       <div class="form-group input-group mb-3">
-        <input name="genero" class="form-control" placeholder="Género" type="password">
+        <input [(ngModel)]="nuevoUsuario.genero" name="genero" class="form-control" placeholder="Género" type="text">
       </div>
       <div class="form-group input-group mb-3">
-        <input name="edad" class="form-control" placeholder="Edad" type="password">
+        <input [(ngModel)]="nuevoUsuario.edad" name="edad" class="form-control" placeholder="Edad" type="text">
       </div>
       <div class="form-group input-group mb-3">
-        <input name="altura" class="form-control" placeholder="Altura" type="password">
+        <input [(ngModel)]="nuevoUsuario.altura" name="altura" class="form-control" placeholder="Altura" type="text">
       </div>
       <div class="form-group input-group mb-3">
-        <input name="peso" class="form-control" placeholder="Peso" type="password">
+        <input [(ngModel)]="nuevoUsuario.peso" name="peso" class="form-control" placeholder="Peso" type="text">
       </div>
       <div class="form-group input-group mb-3">
-        <input name="rol" class="form-control" placeholder="Rol" type="password">
+        <input [(ngModel)]="nuevoUsuario.rol" name="rol" class="form-control" placeholder="Rol" type="text">
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-success btn-block"> Añadir usuario </button>
