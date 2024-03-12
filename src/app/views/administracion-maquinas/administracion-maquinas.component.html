@@ -23,8 +23,9 @@
         <tr class="bg-light">
           <th scope="col" width="5%">#</th>
           <th scope="col" width="20%">Nombre</th>
-          <th scope="col" width="10%">Descripcion</th>
+          <th scope="col" width="20%">Descripcion</th>
           <th scope="col" width="20%">Imagen</th>
+          <th scope="col" width="20%">Acciones</th>
         </tr>
       </thead>
   <tbody *ngFor="let maquina of maquinas, let i = index">
@@ -33,6 +34,7 @@
       <td>{{ maquina.nombre }}</td>
       <td>{{ maquina.descripcion }}</td>
       <td><img width="12%" [src]="maquina.imagenURL" alt="imagen_maquina"></td>
+      <td><button class="btn btn-danger" (click)="deleteMaquina(maquina.id)">Eliminar</button></td>
     </tr>
   </tbody>
 </table>

@@ -55,6 +55,20 @@ export class AdministracionMaquinasComponent implements OnInit{
     })
   }
 
+  deleteMaquina(id: number) {
+    if (confirm('¿Estás seguro de que quieres eliminar esta máquina?')) {
+      this.maquinaService.deleteById(id).subscribe({
+        next: () => {
+          // Vuelve a cargar la lista de máquinas después de eliminar
+          this.fetchMaquinas
+        },
+        error: error => {
+          console.error(error);
+        }
+      })
+    }
+  }
+
   muestraFormulario() {
     this.mostrarFormulario = !this.mostrarFormulario;
   }
