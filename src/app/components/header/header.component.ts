@@ -25,6 +25,6 @@ export class HeaderComponent {
 
   cerrarSesion(): void {
     localStorage.removeItem('usuario');
-    this.router.navigate(['/']);
+    this.router.navigate(['login']);
   }
 }

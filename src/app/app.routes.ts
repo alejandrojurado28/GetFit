@@ -4,6 +4,7 @@ import { AboutViewComponent } from './views/about-view/about-view.component';
 import { LoginComponent } from './views/login/login.component';
 import { AddMaquinaComponent } from './views/add-maquina/add-maquina.component';
 import { GestorUsuariosComponent } from './views/gestor-usuarios/gestor-usuarios.component';
+import { AdministracionMaquinasComponent } from './views/administracion-maquinas/administracion-maquinas.component';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: 'gestorUsuarios',
     component: GestorUsuariosComponent
+  },
+  {
+    path: 'gestorMaquinas',
+    component: AdministracionMaquinasComponent
   }
 ];
