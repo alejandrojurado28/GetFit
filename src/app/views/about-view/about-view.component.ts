@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { Pregunta } from '../../interfaces/Pregunta.interface';
 import { PreguntaService } from '../../services/pregunta.service';
 import { Usuario } from '../../interfaces/Usuario.interface';
+import { CardMonitoresComponent } from '../../components/card-monitores/card-monitores.component';
 
 @Component({
   selector: 'app-about-view',
   standalone: true,
-  imports: [HeaderComponent, CommonModule, FormsModule],
+  imports: [HeaderComponent, CommonModule, FormsModule, CardMonitoresComponent],
   templateUrl: './about-view.component.html',
   styleUrl: './about-view.component.css'
 })

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Monitor } from '../interfaces/Monitor.interface';
@@ -19,7 +19,7 @@ export class MonitorService {
   create(monitor: Monitor): Observable<any> {
     return this.http.post(this.baseUrl, monitor);
   }
-  
+
   update(monitor: Monitor): Observable<any> {
     return this.http.put(this.baseUrl, monitor);
   }
