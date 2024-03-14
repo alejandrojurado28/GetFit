@@ -23,14 +23,6 @@
       imagen: ''
     };
 
-    selectedFile?: File;
-
-    onFileSelected(event: any) {
-      if (event.target.files && event.target.files.length > 0) {
-        this.selectedFile = event.target.files[0];
-      }
-    }
-
     constructor(private monitorService: MonitorService) {}
 
     ngOnInit(): void {

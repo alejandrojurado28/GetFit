@@ -5,6 +5,7 @@ import { LoginComponent } from './views/login/login.component';
 import { GestorUsuariosComponent } from './views/gestor-usuarios/gestor-usuarios.component';
 import { AdministracionMaquinasComponent } from './views/administracion-maquinas/administracion-maquinas.component';
 import { AdministracionMonitoresComponent } from './views/administracion-monitores/administracion-monitores.component';
+import { AdministracionInstalacionesComponent } from './views/administracion-instalaciones/administracion-instalaciones.component';
 
 export const routes: Routes = [
   {
@@ -30,5 +31,9 @@ export const routes: Routes = [
   {
     path: 'gestorMonitores',
     component: AdministracionMonitoresComponent
+  },
+  {
+    path: 'gestorInstalaciones',
+    component: AdministracionInstalacionesComponent
   }
 ];

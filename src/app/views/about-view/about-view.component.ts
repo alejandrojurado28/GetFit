@@ -6,11 +6,12 @@ import { Pregunta } from '../../interfaces/Pregunta.interface';
 import { PreguntaService } from '../../services/pregunta.service';
 import { Usuario } from '../../interfaces/Usuario.interface';
 import { CardMonitoresComponent } from '../../components/card-monitores/card-monitores.component';
+import { CardInstalacionesComponent } from '../../components/card-instalaciones/card-instalaciones.component';
 
 @Component({
   selector: 'app-about-view',
   standalone: true,
-  imports: [HeaderComponent, CommonModule, FormsModule, CardMonitoresComponent],
+  imports: [HeaderComponent, CommonModule, FormsModule, CardMonitoresComponent, CardInstalacionesComponent],
   templateUrl: './about-view.component.html',
   styleUrl: './about-view.component.css'
 })

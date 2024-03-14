@@ -3,21 +3,17 @@ import { Instalacion } from '../../interfaces/Instalacion.interface';
 import { InstalacionesService } from '../../services/instalaciones.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Usuario } from '../../interfaces/Usuario.interface';
-import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-card-instalaciones',
+  selector: 'app-administracion-instalaciones',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
-  templateUrl: './card-instalaciones.component.html',
-  styleUrl: './card-instalaciones.component.css'
+  imports: [CommonModule, FormsModule],
+  templateUrl: './administracion-instalaciones.component.html',
+  styleUrl: './administracion-instalaciones.component.css'
 })
-export class CardInstalacionesComponent implements OnInit {
-
+export class AdministracionInstalacionesComponent implements OnInit {
   instalaciones?: Instalacion[];
   mostrarFormulario: boolean = false;
-  currentUser: Usuario | null;
   nuevaInstalacion: Instalacion = {
     id: 0,
     nombre: '',
@@ -25,10 +21,7 @@ export class CardInstalacionesComponent implements OnInit {
     imagen: ''
   }
 
-  constructor(private instalacionesService: InstalacionesService) {
-    const userString = localStorage.getItem('usuario');
-    this.currentUser = userString ? JSON.parse(userString) : null;
-  }
+  constructor(private instalacionesService: InstalacionesService) { }
 
   ngOnInit(): void {
     this.fetchInstalaciones();
@@ -40,7 +33,9 @@ export class CardInstalacionesComponent implements OnInit {
         this.instalaciones = value;
         console.log(value);
       },
-      error: error => {console.error(error)}
+      error: error => {
+        console.error(error);
+      }
     })
   }
 
@@ -62,8 +57,20 @@ export class CardInstalacionesComponent implements OnInit {
     })
   }
 
+  deleteMaquina(id: number) {
+    if (confirm('¿Estás seguro de que quieres eliminar esta instalación?')) {
+      this.instalacionesService.deleteById(id).subscribe({
+        next: () => {
+          this.fetchInstalaciones();
+        },
+        error: error => {
+          console.error(error);
+        }
+      })
+    }
+  }
+
   muestraFormulario() {
     this.mostrarFormulario = !this.mostrarFormulario;
   }
-
 }

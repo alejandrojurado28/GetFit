@@ -3,6 +3,11 @@
       class="container-fluid bg-trasparent my-4 p-3"
       style="position: relative"
     >
+
+    <div *ngIf="currentUser?.rol === 'admin'">
+      <a [routerLink]="['/gestorInstalaciones']" type="button" class="btn btn-primary btn-sm float-end">Administrar instalaciones</a>
+    </div>
+
       <div *ngFor="let instalacion of instalaciones, let i = index" class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
         <div class="col">
           <div class="card h-100 shadow-sm">
@@ -28,4 +33,3 @@
       </div>
     </div>
   </main>
-  
