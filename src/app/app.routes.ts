@@ -6,6 +6,7 @@ import { GestorUsuariosComponent } from './views/gestor-usuarios/gestor-usuarios
 import { AdministracionMaquinasComponent } from './views/administracion-maquinas/administracion-maquinas.component';
 import { AdministracionMonitoresComponent } from './views/administracion-monitores/administracion-monitores.component';
 import { AdministracionInstalacionesComponent } from './views/administracion-instalaciones/administracion-instalaciones.component';
+import { ClasesViewComponent } from './views/clases-view/clases-view.component';
 
 export const routes: Routes = [
   {
@@ -35,5 +36,9 @@ export const routes: Routes = [
   {
     path: 'gestorInstalaciones',
     component: AdministracionInstalacionesComponent
+  },
+  {
+    path: 'clases',
+    component: ClasesViewComponent
   }
 ];
