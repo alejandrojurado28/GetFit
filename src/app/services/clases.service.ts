@@ -21,7 +21,7 @@ export class ClasesService {
   }
 
   update(clase: Clases): Observable<any> {
-    return this.http.put(this.baseUrl, clase);
+    return this.http.put(`${this.baseUrl}/${clase.id}`, clase);
   }
 
   deleteById(id: any): Observable<any> {
