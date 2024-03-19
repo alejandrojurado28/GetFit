@@ -75,6 +75,7 @@ export class ClasesViewComponent implements OnInit {
       this.clasesService.update(clase).subscribe({
         next: () => {
           console.log('Usuario apuntado correctamente');
+          window.location.reload(); // Recargar la página después de apuntarse
         },
         error: error => {
           console.error('Error al apuntar al usuario', error);
