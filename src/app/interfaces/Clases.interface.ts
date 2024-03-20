@@ -4,5 +4,5 @@ export interface Clases {
   descripcion: string,
   alumnos: string[],
   fechaInicio: Date,
-  fechaFin: Date
+  hora: string
 }

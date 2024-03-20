@@ -14,8 +14,8 @@
         <tr class="bg-light">
           <th scope="col" width="20%">Nombre</th>
           <th scope="col" width="20%">Descripcion</th>
-          <th scope="col" width="20%">Inicio</th>
-          <th scope="col" width="20%">Final</th>
+          <th scope="col" width="20%">Fecha</th>
+          <th scope="col" width="20%">Hora</th>
           <th scope="col" width="20%">Alumnos</th>
           <th scope="col" width="20%">Acciones</th>
         </tr>
@@ -25,10 +25,10 @@
           <td>{{ clase.nombre }}</td>
           <td>{{ clase.descripcion }}</td>
           <td>{{ clase.fechaInicio | date: 'dd/MM/yyyy' }}</td>
-          <td>{{ clase.fechaFin | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ clase.hora }}</td>
           <td>{{ clase.alumnos }}</td>
           <td><button class="btn btn-success" (click)="apuntarme(clase)">Apuntarme</button></td>
-          <td *ngIf="currentUser?.rol === 'admin'"><button class="btn btn-danger">Eliminar</button></td>
+          <td *ngIf="currentUser?.rol === 'admin'"><button (click)="deleteClase(clase.id)" class="btn btn-danger">Eliminar</button></td>
         </tr>
       </tbody>
     </table>
@@ -47,10 +47,10 @@
         <input [(ngModel)]="nuevaClase.descripcion" name="descripcion" class="form-control" placeholder="Descripcion de lo que se hará" type="text">
       </div>
       <div class="form-group input-group mb-3">
-        <input [(ngModel)]="nuevaClase.fechaInicio" name="fechaInicio" class="form-control" placeholder="Inicio" type="datetime-local">
+        <input [(ngModel)]="nuevaClase.fechaInicio" name="fechaInicio" class="form-control" placeholder="fecha" type="date">
       </div>
       <div class="form-group input-group mb-3">
-        <input [(ngModel)]="nuevaClase.fechaFin" name="fechaFin" class="form-control" placeholder="Final" type="datetime-local">
+        <input [(ngModel)]="nuevaClase.hora" name="hora" class="form-control" placeholder="hora" type="text">
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-success btn-block"> Añadir clase </button>

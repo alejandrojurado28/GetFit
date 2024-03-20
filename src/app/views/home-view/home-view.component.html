@@ -15,18 +15,18 @@
 
 <div class="text-center mt-5">
   <h1>Contacta con nosotros</h1>
-  <form>
+  <form (ngSubmit)="createContacto()">
     <div class="form-group">
       <label for="nombre">Nombre:</label>
-      <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+      <input [(ngModel)]="nuevoContacto.nombre" type="text" name="nombre" class="form-control" id="nombre" placeholder="Ingrese su nombre">
     </div>
     <div class="form-group">
       <label for="correo">Correo electrónico:</label>
-      <input type="email" class="form-control" id="correo" placeholder="Ingrese su correo electrónico">
+      <input [(ngModel)]="nuevoContacto.correo" type="email" name="correo" class="form-control" id="correo" placeholder="Ingrese su correo electrónico">
     </div>
     <div class="form-group">
       <label for="mensaje">Mensaje:</label>
-      <textarea class="form-control" id="mensaje" rows="5" placeholder="Escriba su mensaje aquí"></textarea>
+      <textarea [(ngModel)]="nuevoContacto.mensaje" class="form-control" name="mensaje" id="mensaje" rows="5" placeholder="Escriba su mensaje aquí"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Enviar</button>
   </form>

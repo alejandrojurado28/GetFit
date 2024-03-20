@@ -24,7 +24,7 @@ export class ClasesViewComponent implements OnInit {
     nombre: '',
     descripcion: '',
     fechaInicio: new Date(),
-    fechaFin: new Date(),
+    hora: '',
     alumnos: []
   }
 
@@ -58,7 +58,7 @@ export class ClasesViewComponent implements OnInit {
           nombre: '',
           descripcion: '',
           fechaInicio: new Date(),
-          fechaFin: new Date(),
+          hora: '',
           alumnos: []
         };
         this.mostrarFormulario = false;
@@ -67,6 +67,19 @@ export class ClasesViewComponent implements OnInit {
         console.error(error);
       }
     })
+  }
+
+  deleteClase(id: number) {
+    if (confirm('¿Estás seguro que quieres eliminar esta clase?')) {
+      this.clasesService.deleteById(id).subscribe({
+        next: () => {
+          this.fetchClases();
+        },
+        error: error => {
+          console.error(error);
+        }
+      })
+    }
   }
 
   apuntarme(clase: Clases) {
