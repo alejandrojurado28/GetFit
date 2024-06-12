@@ -84,6 +84,10 @@ export class ClasesViewComponent implements OnInit {
 
   apuntarme(clase: Clases) {
     if (this.currentUser) {
+      if (clase.alumnos.includes(this.currentUser.nombre)) {
+        console.error('Usuario ya apuntado a la clase');
+        return;
+      }
       clase.alumnos.push(this.currentUser.nombre);  // Agregar nombre del usuario a la lista de alumnos
       this.clasesService.update(clase).subscribe({
         next: () => {

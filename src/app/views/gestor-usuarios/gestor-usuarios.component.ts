@@ -73,4 +73,18 @@ export class GestorUsuariosComponent implements OnInit{
       }
     })
   }
+
+  deleteUsuario(id: number) {
+    if (confirm('¿Estás seguro que quieres eliminar esta clase?')) {
+      this.usuarioService.deleteById(id).subscribe({
+        next: () => {
+          this.fetchUsuarios();
+        },
+        error: error => {
+          console.error(error);
+        }
+      })
+    }
+  }
+
 }

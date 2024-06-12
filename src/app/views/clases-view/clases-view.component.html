@@ -33,7 +33,7 @@
       </tbody>
     </table>
 
-    <div *ngIf="currentUser?.rol === 'admin'" class="mt-5">
+    <div *ngIf="currentUser?.rol === 'admin' || currentUser?.rol === 'empleado'" class="mt-5">
       <button class="btn btn-primary mt-3 mb-3" (click)="muestraFormulario()">Añadir una clase</button>
     </div>
 

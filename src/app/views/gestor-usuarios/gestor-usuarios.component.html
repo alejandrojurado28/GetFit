@@ -43,6 +43,7 @@
       <td>{{ usuario.altura }}</td>
       <td>{{ usuario.peso }}</td>
       <td>{{ usuario.rol }}</td>
+      <td><button class="btn btn-danger" (click)="deleteUsuario(usuario.id)">Eliminar</button></td>
     </tr>
   </tbody>
 </table>

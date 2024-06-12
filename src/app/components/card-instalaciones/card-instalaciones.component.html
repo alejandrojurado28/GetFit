@@ -1,35 +1,22 @@
 <main>
-    <div
-      class="container-fluid bg-trasparent my-4 p-3"
-      style="position: relative"
-    >
-
-    <div *ngIf="currentUser?.rol === 'admin'">
-      <a [routerLink]="['/gestorInstalaciones']" type="button" class="btn btn-primary btn-sm float-end">Administrar instalaciones</a>
+  <div class="container-fluid bg-transparent my-4 p-3" style="position: relative">
+    <div *ngIf="currentUser?.rol === 'admin' || currentUser?.rol === 'empleado'">
+      <a [routerLink]="['/gestorMaquinas']" type="button" class="btn btn-primary btn-sm float-end">Administrar monitores</a>
     </div>
 
-      <div *ngFor="let instalacion of instalaciones, let i = index" class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-        <div class="col">
-          <div class="card h-100 shadow-sm">
-            <img
-              width="50%"
-              [src]="instalacion.imagen"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="label-top shadow-sm">{{ instalacion.nombre }}</div>
-            <div class="card-body">
-              <div class="clearfix mb-3">
-                <span class="float-end"
-                  ><a href="#" class="small text-muted">Descripción</a></span
-                >
-              </div>
-              <h5 class="card-title">
-                {{ instalacion.descripcion }}
-              </h5>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div *ngFor="let instalacion of instalaciones" class="col">
+        <div class="card h-100 shadow-sm">
+          <img [src]="instalacion.imagen" class="card-img-top" alt="{{ instalacion.nombre }}" />
+          <div class="label-top shadow-sm">{{ instalacion.nombre }}</div>
+          <div class="card-body">
+            <div class="clearfix mb-3">
+              <span class="float-end"><a href="#" class="small text-muted">Descripción</a></span>
             </div>
+            <h5 class="card-title">{{ instalacion.descripcion }}</h5>
           </div>
         </div>
       </div>
     </div>
-  </main>
+  </div>
+</main>
