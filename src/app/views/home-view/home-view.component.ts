@@ -8,11 +8,14 @@ import { ContactoService } from '../../services/contacto.service';
 import { Contacto } from '../../interfaces/Contacto.interface';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { CardPresentacionComponent } from '../../components/card-presentacion/card-presentacion.component';
 
 @Component({
   selector: 'app-home-view',
   standalone: true,
-  imports: [HeaderComponent, CarouselComponent, CardOfertasComponent, CardMaquinaComponent, LoginComponent, CommonModule, FormsModule],
+  imports: [HeaderComponent, CarouselComponent, CardOfertasComponent, CardMaquinaComponent, LoginComponent,
+             CommonModule, FormsModule, FooterComponent, CardPresentacionComponent],
   templateUrl: './home-view.component.html',
   styleUrl: './home-view.component.css'
 })

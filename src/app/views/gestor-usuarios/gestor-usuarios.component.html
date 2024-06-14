@@ -86,6 +86,15 @@
     </form>
   </div>
 
+  <div *ngIf="contactos" class="mt-3 mb-3 ml-3 mr-3">
+    <h1>Clientes que nos han contactado</h1>
+    <div *ngFor="let contacto of contactos, let i = index">
+      <h2>Correo: {{ contacto.correo }}</h2>
+      <p>Nombre: {{ contacto.nombre }}</p>
+      <p>Mensaje: {{ contacto.mensaje }}</p>
+    </div>
+  </div>
+
 
 
   </div>

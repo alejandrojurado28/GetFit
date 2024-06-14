@@ -3,6 +3,8 @@ import { Usuario } from '../../interfaces/Usuario.interface';
 import { UsuarioService } from '../../services/usuario.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ContactoService } from '../../services/contacto.service';
+import { Contacto } from '../../interfaces/Contacto.interface';
 
 @Component({
   selector: 'app-gestor-usuarios',
@@ -14,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 export class GestorUsuariosComponent implements OnInit{
 
   usuarios?: Usuario[];
+  contactos?: Contacto[];
   mostrarFormulario: boolean = false;
   nuevoUsuario: Usuario = {
     id: 0,
@@ -28,10 +31,14 @@ export class GestorUsuariosComponent implements OnInit{
     rol: ''
   };
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(
+    private usuarioService: UsuarioService,
+    private contactoService: ContactoService,
+  ) { }
 
   ngOnInit(): void {
     this.fetchUsuarios();
+    this.fetchContactos();
   }
 
   private fetchUsuarios() {
@@ -41,6 +48,18 @@ export class GestorUsuariosComponent implements OnInit{
         console.log(value);
       },
       error: error => {console.log(error)}
+    })
+  }
+
+  private fetchContactos() {
+    this.contactoService.findAll().subscribe({
+      next: value => {
+        this.contactos = value;
+        console.log(value);
+      },
+      error: error => {
+        console.log(error);
+      }
     })
   }
 
