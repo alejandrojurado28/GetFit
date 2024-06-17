@@ -44,11 +44,11 @@
   <div *ngIf="mostrarFormulario" class="mt-5">
     <h2>Añadir nueva instalación</h2>
     <form (submit)="createInstalacion()">
-      <div class="form-group input-group">
+      <div class="form-group input-group mb-3">
         <input [(ngModel)]="nuevaInstalacion.nombre" name="nombre" class="form-control" placeholder="Nombre de la instalación" type="text">
       </div>
       <div class="form-group input-group mb-3">
-        <input [(ngModel)]="nuevaInstalacion.descripcion" name="descripcion" class="form-control" placeholder="Descripción de la isnatalción" type="text">
+        <input [(ngModel)]="nuevaInstalacion.descripcion" name="descripcion" class="form-control" placeholder="Descripción de la instalación" type="text">
       </div>
       <div class="form-group input-group mb-3">
         <input [(ngModel)]="nuevaInstalacion.imagen" name="imagen" class="form-control" placeholder="Url de la imagen de la instalación" type="text">

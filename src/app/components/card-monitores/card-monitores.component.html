@@ -1,7 +1,7 @@
 <main>
   <div class="container-fluid bg-transparent my-4 p-3" style="position: relative">
     <div *ngIf="currentUser?.rol === 'admin' || currentUser?.rol === 'empleado'">
-      <a [routerLink]="['/gestorMaquinas']" type="button" class="btn btn-primary btn-sm float-end">Administrar monitores</a>
+      <a [routerLink]="['/gestorMonitores']" type="button" class="btn btn-primary btn-sm float-end">Administrar monitores</a>
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">

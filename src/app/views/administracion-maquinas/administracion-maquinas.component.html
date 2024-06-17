@@ -44,7 +44,7 @@
   <div *ngIf="mostrarFormulario" class="mt-5">
     <h2>Añadir nueva máquina</h2>
     <form (submit)="createMaquina()">
-      <div class="form-group input-group">
+      <div class="form-group input-group mb-3">
         <input [(ngModel)]="nuevaMaquina.nombre" name="nombre" class="form-control" placeholder="Nombre de la máquina" type="text">
       </div>
       <div class="form-group input-group mb-3">

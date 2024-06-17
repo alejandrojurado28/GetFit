@@ -10,11 +10,12 @@ import { CardInstalacionesComponent } from '../../components/card-instalaciones/
 import { FooterComponent } from '../../components/footer/footer.component';
 import { Respuesta } from '../../interfaces/Respuesta.interface';
 import { RespuestaService } from '../../services/respuesta.service';
+import { FilterByPreguntaPipe } from '../../pipes/filter-by-pregunta.pipe';
 
 @Component({
   selector: 'app-about-view',
   standalone: true,
-  imports: [HeaderComponent, CommonModule, FormsModule, CardMonitoresComponent, CardInstalacionesComponent, FooterComponent],
+  imports: [HeaderComponent, CommonModule, FormsModule, CardMonitoresComponent, CardInstalacionesComponent, FooterComponent, FilterByPreguntaPipe,],
   templateUrl: './about-view.component.html',
   styleUrl: './about-view.component.css'
 })
@@ -91,6 +92,7 @@ export class AboutViewComponent implements OnInit {
 
   createRespuesta(preguntaId: number) {
     this.nuevaRespuesta.id = preguntaId;
+    this.nuevaRespuesta.monitor = this.currentUser?.nombre || '';
     this.respuestaService.create(this.nuevaRespuesta).subscribe({
       next: () => {
         this.fetchRespuestas();

@@ -59,6 +59,19 @@
       })
     }
 
+    deleteMonitor(id: number) {
+      if (confirm('¿Estás seguro de que quieres eliminar este monitor?')) {
+        this.monitorService.deleteById(id).subscribe({
+          next: () => {
+            this.fetchMonitores();
+          },
+          error: error => {
+            console.error(error);
+          }
+        })
+      }
+    }
+
     mostrarFormulario: boolean = false;
 
     muestraFormulario() {

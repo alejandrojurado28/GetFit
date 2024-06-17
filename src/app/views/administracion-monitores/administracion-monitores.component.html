@@ -34,7 +34,7 @@
       <td>{{ monitor.nombre }}</td>
       <td>{{ monitor.descripcion }}</td>
       <td><img width="12%" [src]="monitor.imagen" alt="imagen_monitor"></td>
-      <td><button class="btn btn-danger">Eliminar</button></td>
+      <td><button (click)="deleteMonitor(monitor.id)" class="btn btn-danger">Eliminar</button></td>
     </tr>
   </tbody>
 </table>
@@ -44,7 +44,7 @@
   <div *ngIf="mostrarFormulario" class="mt-5">
     <h2>Añadir nueva monitor</h2>
     <form (ngSubmit)="createMonitor()">
-      <div class="form-group input-group">
+      <div class="form-group input-group mb-3">
         <input [(ngModel)]="nuevoMonitor.nombre" name="nombre" class="form-control" placeholder="Nombre del monitor" type="text">
       </div>
       <div class="form-group input-group mb-3">
